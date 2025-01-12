@@ -1,0 +1,21 @@
+CC = gcc
+# -Wall shows warnings
+# -Wextra shows more warnings
+# -g informations about errors
+CFLAGS = -Walls -Wextra -g
+
+TARGET = program.exe
+
+OBJECTS = project03.o functionsbodies03.o
+
+$(TARGET): $(OBJECTS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS)
+
+project03.o: project03 functionsdeclarations03
+	$(CC) $(CFLAGS) -c project2 -o project2.o
+
+functionsbodies03.o: functionsbodies03 functionsdeclarations03
+	$(CC) $(CFLAGS) -c functionsbodies03 -o functionsbodies03.o
+
+clean:
+	del $(TARGET) $(OBJECTS)
